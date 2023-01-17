@@ -3,7 +3,8 @@ const knowledgeRouter = express.Router();
 
 import {
     getAllKnowledgeBank,
-    getKnowledgeByTitle
+    getKnowledgeByTitle,
+    getKnowledgeByCategory
 } from '../models/knowledgeBankModels.js'
 
 knowledgeRouter.get("/", async (req, res) => {
@@ -13,6 +14,11 @@ knowledgeRouter.get("/", async (req, res) => {
 
 knowledgeRouter.get("/:title", async (req, res) => {
     const specificKnowledge = await getKnowledgeByTitle(req.params.title);
+    return res.json({ success: true, payload: specificKnowledge });
+})
+
+knowledgeRouter.get("/category/:category", async (req, res) => {
+    const specificKnowledge = await getKnowledgeByCategory(req.params.category);
     return res.json({ success: true, payload: specificKnowledge });
 })
 
