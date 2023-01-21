@@ -18,7 +18,7 @@ app.use(express.static('public'));
 app.use("/api/jobApplications", router);
 app.use("/api/knowledgeBank", knowledgeRouter);
 app.use("/api/quizzes", quizRouter)
-app.use("/api/files", uploadRouter);
+app.use("/api/files", uploadRouter, express.static('./public'));
 
 app.listen(PORT, function () {
   console.log(`Server listening on port ${PORT}`);
