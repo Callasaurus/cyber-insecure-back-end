@@ -20,3 +20,5 @@ export {
   getKnowledgeByTitle,
   getKnowledgeByCategory
 }
+
+// deployment
